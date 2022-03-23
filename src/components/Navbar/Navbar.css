@@ -1,0 +1,11 @@
+body {
+    width: 100%;
+}
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--white);
+    flex-wrap: nowrap;
+}
