@@ -22,3 +22,7 @@ body {
 .navbar__social-link {
     color: var(--off-white);
 }
+
+.navbar__social-link :hover {
+    color: #fff;
+}

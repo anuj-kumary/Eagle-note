@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -9,6 +10,9 @@ export const Navbar = () => {
           <h3 className='navigation__heading'>EagleNote</h3>
         </div>
         <ul className='navbar__social'>
+          <Link to='/login' className='navbar__social-link'>
+            <i className='fas fa-user'></i>
+          </Link>
           <li className='navbar__social-link'>
             <i className='fab fa-twitter'></i>
           </li>
