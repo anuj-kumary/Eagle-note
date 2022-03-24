@@ -24,70 +24,72 @@ export const Signup = () => {
   return (
     <>
       <div className='container'>
-        <div className='auth__form'>
-          <div className='auth__title'>
-            <h2 className='heading text__center'>Signup</h2>
-          </div>
-          <div className='input'>
-            <label className='label__text'>Name</label>
-            <input
-              className='input-txt'
-              type='text'
-              value={signupForm.name}
-              onChange={(e) =>
-                setSignupForm({ ...signupForm, name: e.target.value })
-              }
-              required
-            />
-          </div>
-          <div className='input'>
-            <label className='label__text'>Email</label>
-            <input
-              className='input-txt'
-              type='email'
-              value={signupForm.email}
-              onChange={(e) =>
-                setSignupForm({
-                  ...setSignupForm,
-                  email: e.target.value,
-                })
-              }
-              required
-            />
-          </div>
-          <div className='input'>
-            <label className='label__text'>Password</label>
-            <input
-              className='input-txt'
-              type='password'
-              value={signupForm.password}
-              onChange={(e) =>
-                setSignupForm({
-                  ...signupForm,
-                  password: e.target.value,
-                })
-              }
-              required
-            />
-          </div>
-          <div className='input'>
-            <label className='label__text input__checkbox'></label>
-            <input type='checkbox' />
-            <span className='text'>Remember Me</span>
-            <Link to='/login' className='auth__forget'>
-              Forget your Password?
-            </Link>
-          </div>
+        <form>
+          <div className='auth__form'>
+            <div className='auth__title'>
+              <h2 className='heading text__center'>Signup</h2>
+            </div>
+            <div className='input'>
+              <label className='label__text'>Name</label>
+              <input
+                className='input-txt'
+                type='text'
+                value={signupForm.name}
+                onChange={(e) =>
+                  setSignupForm({ ...signupForm, name: e.target.value })
+                }
+                required
+              />
+            </div>
+            <div className='input'>
+              <label className='label__text'>Email</label>
+              <input
+                className='input-txt'
+                type='email'
+                value={signupForm.email}
+                onChange={(e) =>
+                  setSignupForm({
+                    ...setSignupForm,
+                    email: e.target.value,
+                  })
+                }
+                required
+              />
+            </div>
+            <div className='input'>
+              <label className='label__text'>Password</label>
+              <input
+                className='input-txt'
+                type='password'
+                value={signupForm.password}
+                onChange={(e) =>
+                  setSignupForm({
+                    ...signupForm,
+                    password: e.target.value,
+                  })
+                }
+                required
+              />
+            </div>
+            <div className='input'>
+              <label className='label__text input__checkbox'></label>
+              <input type='checkbox' />
+              <span className='text'>Remember Me</span>
+              <Link to='/login' className='auth__forget'>
+                Forget your Password?
+              </Link>
+            </div>
 
-          <div className='btn__signup text__center'>
-            <button
-              onClick={(e) => signupHandler(e)}
-              className='btn btn__primary'
-            >
-              Signup
-            </button>
+            <div className='btn__signup text__center'>
+              <button
+                onClick={(e) => signupHandler(e)}
+                className='btn btn__primary'
+              >
+                Signup
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
