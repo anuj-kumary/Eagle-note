@@ -1,0 +1,8 @@
+:root {
+    --bg-color: #1e2024;
+}
+
+.app {
+    background-color: var(--bg-color);
+    color: var(--off-white);
+}
