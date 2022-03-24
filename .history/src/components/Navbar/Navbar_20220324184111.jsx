@@ -11,7 +11,7 @@ export const Navbar = () => {
         </div>
         <ul className='navbar__social'>
           <Link to='/login' className='navbar__social-link'>
-            <i className='fas fa-user'></i>
+            <i className=''='fas fa-user'></i>
           </Link>
           <li className='navbar__social-link'>
             <i className='fab fa-twitter'></i>
