@@ -1,8 +1,10 @@
 .card__note {
     padding: 1rem 0;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+    border: 1px solid rgba(95, 99, 104, .8);
 }
 
 .card {
-    height: auto;
+    height: min-content;
     margin: 1rem 0;
 }

@@ -12,3 +12,21 @@ export const signupServices = async ({ email, password, name }) =>
     password,
     name,
   });
+
+export const postNotes = async ({ encodedToken, note }) =>
+  await axios.post(
+    '/api/notes',
+    { note },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const getNotes = async ({ encodedToken }) =>
+  await axios.get('/api/notes', {
+    headers: {
+      authorization: encodedToken,
+    },
+  });
