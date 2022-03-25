@@ -11,9 +11,50 @@
     padding: 0.1em;
 }
 
-.note__heading {
+.notes {
+    display: flex;
+}
+
+.note__pinned {
+    padding-top: .8rem;
+}
+
+.note__heading,
+.note__content {
+    padding: 1rem;
     width: 100%;
+    height: auto;
+    background: transparent;
     border: none;
-    padding: 1em 0.8em 0.3em;
-    margin-bottom: 0.5em;
+    outline: none;
+    margin: 0;
+    color: var(--off-white);
+    resize: none;
+    overflow: hidden;
+}
+
+.note__pinned {
+    float: right;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+}
+
+.note__button {
+    padding: 0 1rem;
+}
+
+.note__delete {
+    font-size: 1.2rem;
+}
+
+.note__color {
+    margin-left: 1rem;
+}
+
+.note__add {
+    padding: 0 1rem;
+    cursor: pointer;
 }

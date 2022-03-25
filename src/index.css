@@ -5,4 +5,5 @@
 .app {
     background-color: var(--bg-color);
     color: var(--off-white);
+    min-height: 100vh;
 }

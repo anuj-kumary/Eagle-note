@@ -1,33 +1,21 @@
 import React from 'react';
+import { useData } from '../../context/Data/data-context';
 import './NoteCard.css';
 
 export const NoteCard = () => {
+  const { state } = useData();
   return (
     <>
-      <div className='card card__note'>
-        <header className='card__heading'>Upcoming Submission</header>
-        <p className='card__desc'>
-          I have to submit one macro project and one mini project by this 2
-          april
-        </p>
-        <p className='card__place'>Created date</p>
-      </div>
-      <div className='card card__note'>
-        <header className='card__heading'>Upcoming Submission</header>
-        <p className='card__desc'>
-          I have to submit one macro project and one mini project by this 2
-          april
-        </p>
-        <p className='card__place'>Created date</p>
-      </div>
-      <div className='card card__note'>
-        <header className='card__heading'>Upcoming Submission</header>
-        <p className='card__desc'>
-          I have to submit one macro project and one mini project by this 2
-          april
-        </p>
-        <p className='card__place'>Created date</p>
-      </div>
+      {state.noteList.map((note) => {
+        const { _id, title, content, timeCreated } = note;
+        return (
+          <div key={_id} className='card card__note'>
+            <header className='card__heading'>{title}</header>
+            <p className='card__desc'>{content}</p>
+            <p className='card__place'>Created on {timeCreated}</p>
+          </div>
+        );
+      })}
     </>
   );
 };
