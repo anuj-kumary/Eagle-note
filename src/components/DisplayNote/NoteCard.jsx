@@ -1,8 +1,6 @@
 import React from 'react';
-import { useAuth } from '../../context';
-import { useData } from '../../context';
+import { useAuth, useData } from '../../context';
 import { deleteNote } from '../../services/Services';
-
 import './NoteCard.css';
 
 export const NoteCard = ({ setNote }) => {
