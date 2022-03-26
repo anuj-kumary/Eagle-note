@@ -30,3 +30,21 @@ export const getNotes = async ({ encodedToken }) =>
       authorization: encodedToken,
     },
   });
+
+export const editNote = async (notesId, encodedToken, note) =>
+  await axios.post(
+    `/api/notes/${notesId}`,
+    { note },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const deleteNote = async (notesId, encodedToken) =>
+  await axios.delete(`/api/notes/${notesId}`, {
+    headers: {
+      authorization: encodedToken,
+    },
+  });

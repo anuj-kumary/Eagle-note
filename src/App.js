@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Mockman from 'mockman-js';
 import { Navbar } from './components';
-import { Login } from './pages/Auth';
-import { Signup } from './pages/Auth/Signup';
+import { Login, Signup } from './pages/Auth';
 import { Home } from './pages/Home/Home';
 
 function App() {

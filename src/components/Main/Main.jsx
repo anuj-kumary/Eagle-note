@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/auth/auth-context';
-import { useData } from '../../context/Data/data-context';
-import { postNotes } from '../../services/Services';
+import { useAuth } from '../../context';
+import { useData } from '../../context';
+import { postNotes, editNote } from '../../services/Services';
 import { DisplayNote } from '../DisplayNote/DisplayNote';
 import './Main.css';
 
@@ -13,10 +13,12 @@ export const Main = () => {
   const { dispatch } = useData();
   const date = new Date();
   const navigate = useNavigate();
+
   const [note, setNote] = useState({
+    _id: '',
     title: '',
     content: '',
-    backgroundColor: '',
+    backgroundColor: '#111111',
     timeCreated: `${date.getDate()} - 
       ${date.getMonth() + 1} -
       ${date.getFullYear()}`,
@@ -34,17 +36,33 @@ export const Main = () => {
     if (!token) {
       navigate('/login');
     }
-    const response = await postNotes({
-      note: note,
-      encodedToken: token,
-    });
-    console.log(response);
-    if (response.status === 201) {
-      dispatch({
-        type: 'ADD_NOTE',
-        payload: { noteList: response.data.notes },
+    if (!note._id) {
+      console.log(note._id);
+      const response = await postNotes({
+        note: note,
+        encodedToken: token,
       });
+
+      if (response.status === 201) {
+        dispatch({
+          type: 'ADD_NOTE',
+          payload: { noteList: response.data.notes },
+        });
+      }
+    } else {
+      const editResponse = await editNote(note._id, token, note);
+      if (editResponse.status === 201) {
+        dispatch({
+          type: 'ADD_NOTE',
+          payload: { noteList: editResponse.data.notes },
+        });
+      }
     }
+
+    setNote({
+      title: '',
+      content: '',
+    });
   };
 
   return (
@@ -90,7 +108,6 @@ export const Main = () => {
           {expand ? (
             <footer className='footer'>
               <span className='note__button'>
-                <i className='note__delete fas fa-trash'></i>
                 <input
                   value={note.backgroundColor}
                   className='note__color'
@@ -109,7 +126,7 @@ export const Main = () => {
             </footer>
           ) : null}
         </div>
-        <DisplayNote />
+        <DisplayNote setNote={setNote} />
       </main>
     </>
   );

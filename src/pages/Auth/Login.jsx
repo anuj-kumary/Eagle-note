@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useAuth } from '../../context/auth/auth-context';
-import './Auth.css';
+import { useAuth } from '../../context';
 import { loginServices } from '../../services/Services';
+import './Auth.css';
 
 export const Login = () => {
   const { setUser, setToken } = useAuth();
