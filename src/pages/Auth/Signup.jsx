@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Auth.css';
-import { useAuth } from '../../context/auth/auth-context';
+import { useAuth } from '../../context';
 
 export const Signup = () => {
   const { signupUser } = useAuth();

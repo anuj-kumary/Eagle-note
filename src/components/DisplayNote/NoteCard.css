@@ -8,3 +8,8 @@
     height: min-content;
     margin: 1rem 0;
 }
+
+.btn {
+    padding: .6rem .9rem;
+    margin: 0.6rem 0.5rem 0.2rem 1rem;
+}
