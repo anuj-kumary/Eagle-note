@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context';
 import { useData } from '../../context';
 import { postNotes, editNote } from '../../services/Services';
-import { DisplayNote } from '../DisplayNote/DisplayNote';
+import { DisplayNote } from '../../components';
 import './Main.css';
 
 export const Main = () => {
@@ -37,7 +37,6 @@ export const Main = () => {
       navigate('/login');
     }
     if (!note._id) {
-      console.log(note._id);
       const response = await postNotes({
         note: note,
         encodedToken: token,

@@ -15,11 +15,15 @@
 }
 
 .sidebar__link {
-    padding: 1rem 1.9rem;
+    padding: .8rem 1.9rem;
     font-size: .9rem;
     font-weight: 400;
 }
 
-.sidebar__link:hover {
-    color: var(--text-color);
+.menu__link {
+    color: var(--off-white);
+}
+
+.menu__link:hover {
+    color: var(--warning-color);
 }

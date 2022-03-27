@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth, useData } from '../../context';
-import { deleteNote } from '../../services/Services';
+import { deleteNote, postArchieveNote } from '../../services/Services';
 import './NoteCard.css';
 
 export const NoteCard = ({ setNote }) => {
@@ -25,11 +25,23 @@ export const NoteCard = ({ setNote }) => {
 
   const deleteHandler = async (note) => {
     const response = await deleteNote(note._id, token);
-    console.log(response);
     if (response.status === 200 || response.status === 201) {
       dispatch({
         type: 'ADD_NOTE',
         payload: { noteList: response.data.notes },
+      });
+    }
+  };
+
+  const archieveHandler = async (note) => {
+    const response = await postArchieveNote(note._id, token, note);
+    if (response.status === 201) {
+      dispatch({
+        type: 'ARCHIEVE_NOTE',
+        payload: {
+          archiveList: response.data.archives,
+          noteList: response.data.notes,
+        },
       });
     }
   };
@@ -47,13 +59,25 @@ export const NoteCard = ({ setNote }) => {
             <header className='card__heading'>{title}</header>
             <p className='card__desc'>{content}</p>
             <p className='card__place'>Created on {timeCreated}</p>
-            <footer className='card__footer'>
-              <button onClick={() => deleteHandler(note)} className='btn'>
-                Delete
-              </button>
-              <button onClick={() => editHandler(note)} className='btn'>
-                Edit
-              </button>
+            <footer className='card__icon card__footer'>
+              <span title='Delete' className='footer_icon'>
+                <i
+                  onClick={() => deleteHandler(note)}
+                  className='icon bi bi-trash'
+                ></i>
+              </span>
+              <span title='Edit' className='footer_icon'>
+                <i
+                  onClick={() => editHandler(note)}
+                  className='icon bi bi-pencil-square'
+                ></i>
+              </span>
+              <span title='Archieve' className='footer_icon'>
+                <i
+                  onClick={() => archieveHandler(note)}
+                  className='icon bi bi-arrow-down-square-fill'
+                ></i>
+              </span>
             </footer>
           </div>
         );

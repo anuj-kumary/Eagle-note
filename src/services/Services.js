@@ -48,3 +48,32 @@ export const deleteNote = async (notesId, encodedToken) =>
       authorization: encodedToken,
     },
   });
+
+export const postArchieveNote = async (notesId, encodedToken, note) =>
+  await axios.post(
+    `/api/notes/archives/${notesId}`,
+    { note },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const restoreArchiveNote = async (notesId, encodedToken, note) =>
+  await axios.post(
+    `/api/archives/restore/${notesId}`,
+    { note },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const deleteArchieveNote = async (notesId, encodedToken) =>
+  await axios.delete(`/api/archives/delete/${notesId}`, {
+    headers: {
+      authorization: encodedToken,
+    },
+  });
