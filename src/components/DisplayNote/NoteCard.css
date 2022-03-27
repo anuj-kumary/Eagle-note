@@ -13,3 +13,17 @@
     padding: .6rem .9rem;
     margin: 0.6rem 0.5rem 0.2rem 1rem;
 }
+
+.card__icon {
+    display: flex;
+    align-items: center;
+}
+
+.footer_icon {
+    padding: 1.5rem 0 0 1rem;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 1.3rem;
+}

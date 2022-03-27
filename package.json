@@ -6,6 +6,7 @@
     "@ckeditor/ckeditor5-build-classic": "^33.0.0",
     "@ckeditor/ckeditor5-react": "^4.0.0",
     "axios": "^0.26.1",
+    "bootstrap-icons": "^1.8.1",
     "dayjs": "^1.11.0",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
