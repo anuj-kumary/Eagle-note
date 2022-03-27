@@ -1,20 +1,17 @@
 import React from 'react';
 import { Sidebar } from '../../components';
 import { useAuth, useData } from '../../context';
-import {
-  deleteArchieveNote,
-  restoreArchiveNote,
-} from '../../services/Services';
+import { deleteArchiveNote, restoreArchiveNote } from '../../services/Services';
 
-export const Archieve = () => {
+export const Archive = () => {
   const { state, dispatch } = useData();
   const { token } = useAuth();
 
-  const restoreArchieveHandler = async (note) => {
+  const restoreArchiveHandler = async (note) => {
     const response = await restoreArchiveNote(note._id, token, note);
     if (response.status === 200) {
       dispatch({
-        type: 'ARCHIEVE_NOTE',
+        type: 'ARCHIVE_NOTE',
         payload: {
           archiveList: response.data.archives,
           noteList: response.data.notes,
@@ -23,11 +20,11 @@ export const Archieve = () => {
     }
   };
 
-  const deleteArchieveHandler = async (note) => {
-    const response = await deleteArchieveNote(note._id, token);
+  const deleteArchiveHandler = async (note) => {
+    const response = await deleteArchiveNote(note._id, token);
     if (response.status) {
       dispatch({
-        type: 'DELETE_ARCHIEVE',
+        type: 'DELETE_ARCHIVE',
         payload: {
           archiveList: response.data.archives,
         },
@@ -53,16 +50,16 @@ export const Archieve = () => {
               <footer className='card__icon card__footer'>
                 <span title='Delete' className='footer_icon'>
                   <i
-                    onClick={() => deleteArchieveHandler(note)}
+                    onClick={() => deleteArchiveHandler(note)}
                     className='icon bi bi-trash'
                   ></i>
                 </span>
                 <span title='Edit' className='footer_icon'>
                   <i className='icon bi bi-pencil-square'></i>
                 </span>
-                <span title='Archieve' className='footer_icon'>
+                <span title='Archive' className='footer_icon'>
                   <i
-                    onClick={() => restoreArchieveHandler(note)}
+                    onClick={() => restoreArchiveHandler(note)}
                     className='bi bi-arrow-up-square-fill'
                   ></i>
                 </span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth, useData } from '../../context';
-import { deleteNote, postArchieveNote } from '../../services/Services';
+import { deleteNote, postArchiveNote } from '../../services/Services';
 import './NoteCard.css';
 
 export const NoteCard = ({ setNote }) => {
@@ -33,11 +33,11 @@ export const NoteCard = ({ setNote }) => {
     }
   };
 
-  const archieveHandler = async (note) => {
-    const response = await postArchieveNote(note._id, token, note);
+  const archiveHandler = async (note) => {
+    const response = await postArchiveNote(note._id, token, note);
     if (response.status === 201) {
       dispatch({
-        type: 'ARCHIEVE_NOTE',
+        type: 'ARCHIVE_NOTE',
         payload: {
           archiveList: response.data.archives,
           noteList: response.data.notes,
@@ -72,9 +72,9 @@ export const NoteCard = ({ setNote }) => {
                   className='icon bi bi-pencil-square'
                 ></i>
               </span>
-              <span title='Archieve' className='footer_icon'>
+              <span title='Archive' className='footer_icon'>
                 <i
-                  onClick={() => archieveHandler(note)}
+                  onClick={() => archiveHandler(note)}
                   className='icon bi bi-arrow-down-square-fill'
                 ></i>
               </span>

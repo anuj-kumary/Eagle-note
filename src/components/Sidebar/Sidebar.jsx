@@ -13,7 +13,7 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className='sidebar__link'>
-            <Link to='/archieve' className='menu__link'>
+            <Link to='/archive' className='menu__link'>
               Archive
             </Link>
           </li>

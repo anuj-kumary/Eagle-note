@@ -11,14 +11,14 @@ export const DataReducer = (state, action) => {
         noteList: [...action.payload.noteList],
       };
 
-    case 'ARCHIEVE_NOTE':
+    case 'ARCHIVE_NOTE':
       return {
         ...state,
         archiveList: [...action.payload.archiveList],
         noteList: [...action.payload.noteList],
       };
 
-    case 'DELETE_ARCHIEVE':
+    case 'DELETE_ARCHIVE':
       return {
         ...state,
         archiveList: [...action.payload.archiveList],
