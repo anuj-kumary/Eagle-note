@@ -24,5 +24,30 @@ body {
 }
 
 .navbar__social-link :hover {
-    color: #fff;
+    color: var(--warning-color);
+}
+
+.navbar__search {
+    width: 20rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search__box {
+    width: 100%;
+    border-radius: 5px;
+    padding: .9rem .4rem;
+    outline: none;
+    border-width: 0;
+    border: 1px solid;
+    padding-left: .5rem;
+}
+
+.filter__icon {
+    position: absolute;
+    top: .8rem;
+    right: .4rem;
+    color: var(--content-color);
+    font-size: 1.2rem;
 }
