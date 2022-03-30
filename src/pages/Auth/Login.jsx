@@ -38,7 +38,7 @@ export const Login = () => {
         );
         setUser(response.data.foundUser);
         setToken(response.data.encodedToken);
-        navigate('/');
+        navigate('/note');
       }
     } catch (error) {
       console.log(error);
@@ -92,7 +92,7 @@ export const Login = () => {
           <div className='btn__signup text__center'>
             <button
               onClick={(e) => loginHandler(e, setLoginForm, loginForm)}
-              className='btn btn__primary'
+              className='btn '
             >
               Login
             </button>
