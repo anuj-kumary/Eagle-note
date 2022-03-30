@@ -5,4 +5,5 @@
 
 .label {
     display: flex;
+    flex-wrap: wrap;
 }

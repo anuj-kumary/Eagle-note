@@ -11,7 +11,7 @@ export const Filter = ({ setShowFilter }) => {
     const text = e.target.value;
     if (text === 'asc') {
       state.noteList.sort((a, b) => a.timeCreated - b.timeCreated);
-    } else state.noteList.sort((a, b) => b.timeCreated - a.timeCreated);
+    } else return state.noteList.sort((a, b) => b.timeCreated - a.timeCreated);
   };
   return (
     <div className='modal'>
