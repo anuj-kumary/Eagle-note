@@ -22,6 +22,7 @@ export const Main = () => {
     timeCreated: `${date.getDate()} - 
       ${date.getMonth() + 1} -
       ${date.getFullYear()}`,
+    tag: '',
   });
 
   const showNote = () => {
@@ -37,15 +38,19 @@ export const Main = () => {
       navigate('/login');
     }
     if (!note._id) {
+      let newNote = { ...note, tags: [note.tag] };
+
       const response = await postNotes({
-        note: note,
+        note: newNote,
         encodedToken: token,
       });
 
       if (response.status === 201) {
         dispatch({
           type: 'ADD_NOTE',
-          payload: { noteList: response.data.notes },
+          payload: {
+            noteList: response.data.notes,
+          },
         });
       }
     } else {
@@ -118,6 +123,20 @@ export const Main = () => {
                     })
                   }
                 />
+                <span>
+                  <input
+                    type='text'
+                    class='note__label'
+                    placeholder='Label'
+                    value={note.tag}
+                    onChange={(e) =>
+                      setNote({
+                        ...note,
+                        tag: e.target.value,
+                      })
+                    }
+                  />
+                </span>
               </span>
               <span onClick={clickHandler} className='note__add'>
                 Add
@@ -125,6 +144,7 @@ export const Main = () => {
             </footer>
           ) : null}
         </div>
+
         <DisplayNote setNote={setNote} />
       </main>
     </>

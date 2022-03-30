@@ -13,6 +13,7 @@ export const NoteCard = ({ setNote }) => {
     content,
     timeCreated,
     backgroundColor,
+    tag,
   }) => {
     setNote({
       _id,
@@ -20,6 +21,7 @@ export const NoteCard = ({ setNote }) => {
       content,
       timeCreated,
       backgroundColor,
+      tag,
     });
   };
 
@@ -49,7 +51,7 @@ export const NoteCard = ({ setNote }) => {
   return (
     <>
       {state.noteList.map((note) => {
-        const { _id, title, content, timeCreated, backgroundColor } = note;
+        const { _id, title, content, timeCreated, backgroundColor, tag } = note;
         return (
           <div
             style={{ backgroundColor: backgroundColor }}
@@ -59,6 +61,7 @@ export const NoteCard = ({ setNote }) => {
             <header className='card__heading'>{title}</header>
             <p className='card__desc'>{content}</p>
             <p className='card__place'>Created on {timeCreated}</p>
+            {tag === '' ? null : <p className='card__label'> {tag}</p>}
             <footer className='card__icon card__footer'>
               <span title='Delete' className='footer_icon'>
                 <i

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Mockman from 'mockman-js';
 import { Navbar } from './components';
 import { Login, Signup } from './pages/Auth';
+import { Label } from './pages/Label/Label';
 import { Home } from './pages/Home/Home';
 import { Archive } from './pages/Archive/Archive';
 
@@ -15,6 +16,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/archive' element={<Archive />} />
+          <Route path='/label' element={<Label />} />
           <Route path='/mockman' element={<Mockman />} />
         </Routes>
       </div>

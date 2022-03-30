@@ -6,7 +6,7 @@
     width: 37.4rem;
     border: 1px solid rgba(95, 99, 104, .8);
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-    margin: 2rem auto;
+    margin: 0 auto;
     border-radius: 0.5em;
     padding: 0.1em;
 }
@@ -42,10 +42,6 @@
     display: flex;
 }
 
-.note__button {
-    padding: 0 1rem;
-}
-
 .note__delete {
     font-size: 1.2rem;
 }
@@ -55,6 +51,19 @@
 }
 
 .note__add {
-    padding: 0 1rem;
+    padding: 0.5rem;
     cursor: pointer;
+}
+
+.note__label {
+    width: 10rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border-width: 0;
+    padding: .3rem .5rem;
+    border-radius: 5px;
+    outline: none;
+    color: var(--off-white);
+    border: 1px solid rgba(95, 99, 104, .8);
 }
