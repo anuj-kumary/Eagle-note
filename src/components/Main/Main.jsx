@@ -9,7 +9,6 @@ import './Main.css';
 
 export const Main = () => {
   const [expand, setExpand] = useState(false);
-  //const [pinned, setPinned] = useState(false);
   const { token } = useAuth();
   const { dispatch } = useData();
   const date = new Date();

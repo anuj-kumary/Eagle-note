@@ -24,7 +24,7 @@ body {
 }
 
 .navbar__social-link :hover {
-    color: #fff;
+    color: var(--warning-color);
 }
 
 .navbar__search {
@@ -48,6 +48,6 @@ body {
     position: absolute;
     top: .8rem;
     right: .4rem;
-    color: black;
+    color: var(--content-color);
     font-size: 1.2rem;
 }
