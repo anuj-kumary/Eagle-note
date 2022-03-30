@@ -36,8 +36,8 @@ export const Login = () => {
             user: response.data.foundUser,
           })
         );
-        setToken(response.data.encodedToken);
         setUser(response.data.foundUser);
+        setToken(response.data.encodedToken);
         navigate('/');
       }
     } catch (error) {
