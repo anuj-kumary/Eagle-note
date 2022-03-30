@@ -13,7 +13,7 @@ export const Sidebar = () => {
           <li className='sidebar__link'>
             <Link
               onClick={() => setShowSidebar(false)}
-              to='/'
+              to='/note'
               className='menu__link'
             >
               Note

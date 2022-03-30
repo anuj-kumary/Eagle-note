@@ -23,7 +23,7 @@ body {
     color: var(--off-white);
 }
 
-.navigation__heading,
+.navigation__heading:hover,
 .navbar__social-link :hover {
     color: var(--warning-color);
 }
@@ -51,6 +51,7 @@ body {
     right: .4rem;
     color: var(--content-color);
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .mobile__search--container {
