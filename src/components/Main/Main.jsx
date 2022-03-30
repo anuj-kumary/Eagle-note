@@ -9,6 +9,7 @@ import './Main.css';
 
 export const Main = () => {
   const [expand, setExpand] = useState(false);
+  //const [pinned, setPinned] = useState(false);
   const { token } = useAuth();
   const { dispatch } = useData();
   const date = new Date();
@@ -20,7 +21,7 @@ export const Main = () => {
     content: '',
     backgroundColor: '#111111',
     timeCreated: `${date.getDate()} - 
-      ${String(date.getMonth() + 1).padStart(2, '0')} -
+      ${date.getMonth() + 1} -
       ${date.getFullYear()}`,
     tag: '',
   });
@@ -54,7 +55,8 @@ export const Main = () => {
         });
       }
     } else {
-      const editResponse = await editNote(note._id, token, note);
+      let newNote = { ...note, tags: [note.tag] };
+      const editResponse = await editNote(note._id, token, newNote);
       if (editResponse.status === 201) {
         dispatch({
           type: 'ADD_NOTE',
@@ -64,8 +66,14 @@ export const Main = () => {
     }
 
     setNote({
+      _id: '',
       title: '',
       content: '',
+      timeCreated: `${date.getDate()} - 
+      ${date.getMonth() + 1} -
+      ${date.getFullYear()}`,
+      backgroundColor: '#111111',
+      tag: '',
     });
   };
 
@@ -88,9 +96,6 @@ export const Main = () => {
                   })
                 }
               ></input>
-              <span className='note__pinned'>
-                <i className='fas fa-thumbtack'></i>
-              </span>
             </div>
           ) : null}
 

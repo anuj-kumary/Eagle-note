@@ -1,6 +1,7 @@
 export const initialState = {
   noteList: [],
   archiveList: [],
+  search: '',
 };
 
 export const DataReducer = (state, action) => {
@@ -22,6 +23,12 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         archiveList: [...action.payload.archiveList],
+      };
+
+    case 'SEARCH':
+      return {
+        ...state,
+        search: action.payload.toLowerCase(),
       };
 
     default:

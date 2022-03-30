@@ -48,9 +48,18 @@ export const NoteCard = ({ setNote }) => {
     }
   };
 
+  const searchFilter = (data, keyword) => {
+    if (keyword === '') return data;
+    return data.filter((el) =>
+      el.tag.toLowerCase().startsWith(keyword.toLowerCase())
+    );
+  };
+
+  const filterData = searchFilter(state.noteList, state.search);
+
   return (
     <>
-      {state.noteList.map((note) => {
+      {filterData.map((note) => {
         const { _id, title, content, timeCreated, backgroundColor, tag } = note;
         return (
           <div

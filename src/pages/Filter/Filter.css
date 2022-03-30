@@ -1,0 +1,16 @@
+.modal {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fff;
+    position: absolute;
+    background-color: #111;
+    z-index: 1;
+    top: 8rem;
+    left: 52.5rem;
+}
+
+.hide__icon {
+    float: right;
+    padding: .2rem 1rem;
+}
