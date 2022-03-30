@@ -1,12 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-import Mockman from 'mockman-js';
 import { Navbar } from './components';
 import { Login, Signup } from './pages/Auth';
 import { Label } from './pages/Label/Label';
 import { Home } from './pages/Home/Home';
 import { Archive } from './pages/Archive/Archive';
+import { useAuth } from './context';
 
 function App() {
+  const { token } = useAuth();
   return (
     <>
       <div className='app'>
@@ -15,9 +16,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/archive' element={<Archive />} />
-          <Route path='/label' element={<Label />} />
-          <Route path='/mockman' element={<Mockman />} />
+          <Route path='/archive' element={token ? <Archive /> : <Login />} />
+          <Route path='/label' element={token ? <Label /> : <Login />} />
         </Routes>
       </div>
     </>

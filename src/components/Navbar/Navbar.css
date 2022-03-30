@@ -23,6 +23,7 @@ body {
     color: var(--off-white);
 }
 
+.navigation__heading,
 .navbar__social-link :hover {
     color: var(--warning-color);
 }

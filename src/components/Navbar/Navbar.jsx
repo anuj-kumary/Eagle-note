@@ -2,22 +2,36 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Filter } from '../../pages/Filter/Filter';
 import './Navbar.css';
-import { useData } from '../../context';
+import { useAuth, useData } from '../../context';
 
 export const Navbar = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [search, setSearch] = useState('');
   const { dispatch } = useData();
+  const { setToken, setUser, token } = useAuth();
 
   const filterHandler = () => {
     setShowFilter(true);
+  };
+
+  const logOutHandler = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('login');
+    setToken(null);
+    setUser(null);
+    // dispatch({
+    //   type: 'ARCHIVE_NOTE',
+    //   payload: { archiveList: [], noteList: [] },
+    // });
   };
 
   return (
     <>
       <nav className='navigation'>
         <div className='navigation__logo'>
-          <h3 className='navigation__heading'>EagleNote</h3>
+          <Link to='/' className='navigation__heading'>
+            EagleNote
+          </Link>
         </div>
         <ul className='navbar__search'>
           <input
@@ -38,19 +52,36 @@ export const Navbar = () => {
             placeholder='Filter with labels'
           />
           <span onClick={filterHandler}>
-            <i class='filter__icon bi bi-funnel-fill'></i>
+            <i className='filter__icon bi bi-funnel-fill'></i>
           </span>
         </ul>
         <ul className='navbar__social'>
-          <Link to='/login' className='navbar__social-link'>
-            <i className='fas fa-user'></i>
-          </Link>
-          <li className='navbar__social-link'>
+          {token ? (
+            <Link
+              to='/login'
+              className='navbar__social-link'
+              onClick={(e) => logOutHandler(e)}
+            >
+              <i class='bi bi-box-arrow-in-right'></i>
+            </Link>
+          ) : (
+            <Link to='/login' className='navbar__social-link'>
+              <i className='fas fa-user'></i>
+            </Link>
+          )}
+
+          <a
+            href='https://twitter.com/TheRealAnujK'
+            className='navbar__social-link'
+          >
             <i className='fab fa-twitter'></i>
-          </li>
-          <li className='navbar__social-link'>
+          </a>
+          <a
+            href='https://github.com/anuj-kumary/eagle-note'
+            className='navbar__social-link'
+          >
             <i className='fab fa-github'></i>
-          </li>
+          </a>
         </ul>
       </nav>
       {showFilter ? <Filter setShowFilter={setShowFilter} /> : null}

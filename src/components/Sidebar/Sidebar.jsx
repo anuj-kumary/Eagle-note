@@ -22,11 +22,6 @@ export const Sidebar = () => {
               Archive
             </Link>
           </li>
-          <li className='sidebar__link'>
-            <Link to='/' className='menu__link'>
-              Trash
-            </Link>
-          </li>
         </ul>
       </aside>
     </>
