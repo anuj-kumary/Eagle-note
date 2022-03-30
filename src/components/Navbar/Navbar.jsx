@@ -7,7 +7,7 @@ import { useData } from '../../context';
 export const Navbar = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [search, setSearch] = useState('');
-  const { dispatch } = useData();
+  const { dispatch, sidebarClickHandler } = useData();
 
   const filterHandler = () => {
     setShowFilter(true);
@@ -51,8 +51,39 @@ export const Navbar = () => {
           <li className='navbar__social-link'>
             <i className='fab fa-github'></i>
           </li>
+          <li
+            onClick={sidebarClickHandler}
+            className='navbar__social-link hamburger'
+          >
+            <i class='bi bi-list'></i>
+          </li>
         </ul>
       </nav>
+      <div className='mobile__search--container'>
+        <ul className='mobile__navbar--search'>
+          <input
+            className='search__box'
+            type='text'
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                dispatch({
+                  type: 'SEARCH',
+                  payload: search,
+                });
+              }
+            }}
+            placeholder='Filter with labels'
+          />
+          <span onClick={filterHandler}>
+            <i class='filter__icon bi bi-funnel-fill'></i>
+          </span>
+        </ul>
+      </div>
+
       {showFilter ? <Filter setShowFilter={setShowFilter} /> : null}
     </>
   );

@@ -2,15 +2,26 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid #fff;
-    position: absolute;
-    background-color: #111;
+    border: 1px solid var(--off--gey);
+    position: relative;
+    background-color: var(--bg-color);
     z-index: 1;
-    top: 8rem;
-    left: 52.5rem;
+    border: 1px solid rgba(95, 99, 104, .8);
+    left: 32.5rem;
+    padding: 1rem;
 }
 
 .hide__icon {
     float: right;
     padding: .2rem 1rem;
+}
+
+@media screen and (max-width: 750px) {
+    html {
+        font-size: 10px;
+    }
+
+    .modal {
+        left: 11.5rem;
+    }
 }

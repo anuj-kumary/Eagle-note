@@ -2,6 +2,10 @@
     --bg-color: #1e2024;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .app {
     background-color: var(--bg-color);
     color: var(--off-white);

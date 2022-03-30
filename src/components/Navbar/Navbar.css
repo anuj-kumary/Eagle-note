@@ -51,3 +51,39 @@ body {
     color: var(--content-color);
     font-size: 1.2rem;
 }
+
+.mobile__search--container {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width:750px) {
+    .navbar__search {
+        display: none
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile__search--container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+    }
+
+    .mobile__navbar--search {
+        width: 28rem;
+
+    }
+
+    .filter__icon {
+        position: relative;
+        top: -2.3rem;
+        left: 25rem;
+    }
+}
