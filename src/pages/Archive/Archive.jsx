@@ -2,6 +2,7 @@ import React from 'react';
 import { Sidebar } from '../../components';
 import { useAuth, useData } from '../../context';
 import { deleteArchiveNote, restoreArchiveNote } from '../../services/Services';
+import './Archive.css';
 
 export const Archive = () => {
   const { state, dispatch } = useData();
