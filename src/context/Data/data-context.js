@@ -26,14 +26,6 @@ const DataProvider = ({ children }) => {
     }
   }, [token]);
 
-  // const noteResp = getNotes({ encodedToken: token });
-  // if (noteResp.status === 200 || noteResp.status === 201) {
-  //   dispatch({
-  //     type: 'ADD_NOTE',
-  //     payload: { noteList: noteResp.data.notes },
-  //   });
-  // }
-
   return (
     <DataContext.Provider value={{ state, dispatch }}>
       {children}
