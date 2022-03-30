@@ -24,6 +24,13 @@
     cursor: pointer;
 }
 
+.card__label {
+    margin: 1rem 0 0 1rem;
+    width: max-content;
+    padding: .5rem;
+    border: 1px solid #fff;
+}
+
 .icon {
     font-size: 1.3rem;
 }
