@@ -77,17 +77,13 @@ export const Navbar = () => {
             className='navbar__social-link'
           >
             <i className='fab fa-github'></i>
-
-          </li>
+          </a>
           <li
             onClick={sidebarClickHandler}
             className='navbar__social-link hamburger'
           >
             <i class='bi bi-list'></i>
           </li>
-
-          </a>
-
         </ul>
       </nav>
       <div className='mobile__search--container'>

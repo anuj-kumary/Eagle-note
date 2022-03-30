@@ -1,5 +1,12 @@
-import { createContext, useContext, useReducer, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from 'react';
 import { DataReducer, initialState } from '../../reducer/DataReducer';
+import { getNotes } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
 
 const DataContext = createContext();
@@ -8,7 +15,7 @@ const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
 
   const [showSidebar, setShowSidebar] = useState(false);
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   const sidebarClickHandler = () => {
     setShowSidebar((sidebar) => !sidebar);
@@ -22,7 +29,6 @@ const DataProvider = ({ children }) => {
     });
   }
 
-  const { token, user } = useAuth();
   useEffect(() => {
     if (!token) {
       dispatch({
@@ -41,7 +47,6 @@ const DataProvider = ({ children }) => {
       });
     }
   }, [token]);
-
 
   return (
     <DataContext.Provider
