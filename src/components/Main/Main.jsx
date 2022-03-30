@@ -20,7 +20,7 @@ export const Main = () => {
     content: '',
     backgroundColor: '#111111',
     timeCreated: `${date.getDate()} - 
-      ${date.getMonth() + 1} -
+      ${String(date.getMonth() + 1).padStart(2, '0')} -
       ${date.getFullYear()}`,
     tag: '',
   });
