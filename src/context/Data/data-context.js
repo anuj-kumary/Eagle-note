@@ -1,12 +1,12 @@
-import { createContext, useContext, useReducer, useState } from 'react';
+import { createContext, useContext, useReducer, useEffect } from 'react';
 import { DataReducer, initialState } from '../../reducer/DataReducer';
-import { getNotes } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
+
   const [showSidebar, setShowSidebar] = useState(false);
   const { token } = useAuth();
 
@@ -20,8 +20,28 @@ const DataProvider = ({ children }) => {
       type: 'ADD_NOTE',
       payload: { noteList: noteResp.data.notes },
     });
-    console.log(noteResp.data.notes);
   }
+
+  const { token, user } = useAuth();
+  useEffect(() => {
+    if (!token) {
+      dispatch({
+        type: 'ADD_NOTE',
+        payload: { noteList: [] },
+      });
+    }
+    if (token) {
+      dispatch({
+        type: 'ADD_NOTE',
+        payload: { noteList: user.notes },
+      });
+      dispatch({
+        type: 'ARCHIVE_NOTE',
+        payload: { archiveList: user.archives, noteList: user.notes },
+      });
+    }
+  }, [token]);
+
 
   return (
     <DataContext.Provider
