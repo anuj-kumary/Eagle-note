@@ -2,6 +2,7 @@ export const initialState = {
   noteList: [],
   archiveList: [],
   search: '',
+  date: '',
 };
 
 export const DataReducer = (state, action) => {
@@ -29,6 +30,13 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         search: action.payload.toLowerCase(),
+      };
+
+    case 'DATEFILTER':
+      console.log(action.payload);
+      return {
+        ...state,
+        date: action.payload,
       };
 
     default:

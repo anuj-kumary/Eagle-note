@@ -55,7 +55,15 @@ export const NoteCard = ({ setNote }) => {
     );
   };
 
-  const filterData = searchFilter(state.noteList, state.search);
+  const sortByDate = (data, keyword) => {
+    if (keyword === 'newDate') {
+      return data.sort((a, b) => a.timeCreated - b.timeCreated);
+    }
+    return data.sort((a, b) => b.timeCreated - a.timeCreated);
+  };
+
+  let filterData = searchFilter(state.noteList, state.search);
+  filterData = sortByDate(state.noteList, state.date);
 
   return (
     <>
