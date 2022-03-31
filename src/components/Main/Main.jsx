@@ -129,7 +129,7 @@ export const Main = () => {
                 <span>
                   <input
                     type='text'
-                    class='note__label'
+                    className='note__label'
                     placeholder='Label'
                     value={note.tag}
                     onChange={(e) =>
