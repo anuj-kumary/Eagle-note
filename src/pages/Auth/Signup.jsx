@@ -81,10 +81,7 @@ export const Signup = () => {
             </div>
 
             <div className='btn__signup text__center'>
-              <button
-                onClick={(e) => signupHandler(e)}
-                className='btn btn__primary'
-              >
+              <button onClick={(e) => signupHandler(e)} className='btn '>
                 Signup
               </button>
             </div>

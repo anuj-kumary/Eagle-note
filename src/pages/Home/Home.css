@@ -1,6 +1,50 @@
-.note__container {
-    width: 100%;
-    margin: 3.125rem auto 0;
+.hero__container {
     display: flex;
-    padding: 0 1rem;
+    align-items: center;
+}
+
+.hero__tagline {
+    margin-top: -4rem;
+    font-size: 3.5rem;
+}
+
+.hero__highlite {
+    color: var(--warning-color);
+}
+
+.hero__para {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.hero__left>button {
+    margin-left: 0;
+    padding: 1rem;
+}
+
+.hero__left {
+    padding-left: 1rem;
+}
+
+.hero__right {
+    width: 50rem;
+}
+
+.btn {
+    background-color: var(--off-white);
+    margin: 1.3rem 0 0 0;
+    padding: .8rem;
+}
+
+.link {
+    color: var(--black);
+}
+
+
+@media screen and (max-width:500px) {
+    .hero__container {
+        flex-direction: column;
+        margin: 5rem auto;
+    }
 }

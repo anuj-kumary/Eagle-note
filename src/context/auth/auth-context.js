@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
         );
         setUser(response.data.createdUser);
         setToken(response.data.encodedToken);
-        navigate('/');
+        navigate('/note');
       }
     } catch (error) {
       console.log(error);
