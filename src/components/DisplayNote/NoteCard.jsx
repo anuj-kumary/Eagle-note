@@ -54,7 +54,6 @@ export const NoteCard = ({ setNote }) => {
 
   const pinnedData = filterData.filter((item) => item.isPinned);
   const unPinnedNotes = filterData.filter((item) => !item.isPinned);
-  console.log(pinnedData);
 
   return (
     <>
