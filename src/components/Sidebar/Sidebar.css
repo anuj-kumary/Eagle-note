@@ -27,3 +27,24 @@
 .menu__link:hover {
     color: var(--warning-color);
 }
+
+
+@media screen and (max-width:750px) {
+    .sidebar {
+        display: none;
+    }
+
+    .showSide {
+        display: flex;
+        position: absolute;
+        z-index: 10;
+        background-color: var(--bg-color);
+        width: 100%;
+        height: 76vh;
+        overflow: hidden;
+    }
+
+    .sidebar__link {
+        font-size: 1.2rem;
+    }
+}

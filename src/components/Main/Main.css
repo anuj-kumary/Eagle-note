@@ -67,3 +67,10 @@
     color: var(--off-white);
     border: 1px solid rgba(95, 99, 104, .8);
 }
+
+
+@media screen and (max-width:650px) {
+    .note {
+        width: auto;
+    }
+}

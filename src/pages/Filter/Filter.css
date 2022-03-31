@@ -2,12 +2,14 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid #fff;
+    border: 1px solid var(--off--gey);
     position: absolute;
-    background-color: #111;
+    background-color: var(--bg-color);
     z-index: 1;
-    top: 8rem;
-    left: 52.5rem;
+    border: 1px solid rgba(95, 99, 104, .8);
+    top: 15%;
+    left: 35%;
+    padding: 1rem;
 }
 
 .hide__icon {
