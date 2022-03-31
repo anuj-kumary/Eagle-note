@@ -1,5 +1,5 @@
 .card__note {
-    padding: 1rem 0;
+    padding-bottom: .5rem;
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
     border: 1px solid rgba(95, 99, 104, .8);
 }
@@ -29,6 +29,10 @@
     width: max-content;
     padding: .5rem;
     border: 1px solid #fff;
+}
+
+.note__pin {
+    float: right;
 }
 
 .icon {

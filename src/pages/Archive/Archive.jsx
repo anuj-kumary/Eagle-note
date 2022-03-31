@@ -56,10 +56,7 @@ export const Archive = () => {
                       className='icon bi bi-trash'
                     ></i>
                   </span>
-                  <span title='Edit' className='footer_icon'>
-                    <i className='icon bi bi-pencil-square'></i>
-                  </span>
-                  <span title='Archive' className='footer_icon'>
+                  <span title='UnArchive' className='footer_icon'>
                     <i
                       onClick={() => restoreArchiveHandler(note)}
                       className='bi bi-arrow-up-square-fill'

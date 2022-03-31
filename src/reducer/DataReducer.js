@@ -33,10 +33,19 @@ export const DataReducer = (state, action) => {
       };
 
     case 'DATEFILTER':
-      console.log(action.payload);
       return {
         ...state,
         date: action.payload,
+      };
+
+    case 'PINNED':
+      return {
+        ...state,
+        noteList: state.noteList.map((item) => {
+          return action.payload === item._id
+            ? { ...item, isPinned: !item.isPinned }
+            : item;
+        }),
       };
 
     default:

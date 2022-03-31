@@ -50,7 +50,7 @@ export const Label = () => {
                 (item) => item.tags[0] === element
               );
               return element === '' ? null : (
-                <div className='label__note'>
+                <div key={element} className='label__note'>
                   <h1 className='sidebar__heading'>{element}</h1>
                   <div className='label'>
                     {tagNote.map((note) => (

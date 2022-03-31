@@ -19,10 +19,10 @@ export const Main = () => {
     title: '',
     content: '',
     backgroundColor: '#111111',
-    timeCreated: `${date.getDate()} - 
-      ${date.getMonth() + 1} -
-      ${date.getFullYear()}`,
+    timeCreated: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+    compareTime: date.getTime(),
     tag: '',
+    isPinned: false,
   });
 
   const showNote = () => {
@@ -68,9 +68,8 @@ export const Main = () => {
       _id: '',
       title: '',
       content: '',
-      timeCreated: `${date.getDate()} - 
-      ${date.getMonth() + 1} -
-      ${date.getFullYear()}`,
+      timeCreated: `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`,
+      compareTime: date.getTime(),
       backgroundColor: '#111111',
       tag: '',
     });
