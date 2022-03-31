@@ -1,6 +1,6 @@
 import React from 'react';
 import { Main, Sidebar } from '../../components';
-import './Note.css';
+import '../Note/Note.css';
 
 export const Note = () => {
   return (
