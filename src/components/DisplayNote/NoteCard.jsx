@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth, useData } from '../../context';
 import { deleteNote, postArchiveNote } from '../../services/Services';
+import { searchFilter, sortByDate } from '../../utils/utils';
 import './NoteCard.css';
 
 export const NoteCard = ({ setNote }) => {
@@ -48,52 +49,141 @@ export const NoteCard = ({ setNote }) => {
     }
   };
 
-  const searchFilter = (data, keyword) => {
-    if (keyword === '') return data;
-    return data.filter((el) =>
-      el.tag.toLowerCase().startsWith(keyword.toLowerCase())
-    );
-  };
+  let filterData = searchFilter(state.noteList, state.search);
+  filterData = sortByDate(state.noteList, state.date);
 
-  const filterData = searchFilter(state.noteList, state.search);
+  const pinnedData = filterData.filter((item) => item.isPinned);
+  const unPinnedNotes = filterData.filter((item) => !item.isPinned);
 
   return (
     <>
-      {filterData.map((note) => {
-        const { _id, title, content, timeCreated, backgroundColor, tag } = note;
-        return (
-          <div
-            style={{ backgroundColor: backgroundColor }}
-            key={_id}
-            className='card card__note'
-          >
-            <header className='card__heading'>{title}</header>
-            <p className='card__desc'>{content}</p>
-            <p className='card__place'>Created on {timeCreated}</p>
-            {tag === '' ? null : <p className='card__label'> {tag}</p>}
-            <footer className='card__icon card__footer'>
-              <span title='Delete' className='footer_icon'>
-                <i
-                  onClick={() => deleteHandler(note)}
-                  className='icon bi bi-trash'
-                ></i>
-              </span>
-              <span title='Edit' className='footer_icon'>
-                <i
-                  onClick={() => editHandler(note)}
-                  className='icon bi bi-pencil-square'
-                ></i>
-              </span>
-              <span title='Archive' className='footer_icon'>
-                <i
-                  onClick={() => archiveHandler(note)}
-                  className='icon bi bi-arrow-down-square-fill'
-                ></i>
-              </span>
-            </footer>
-          </div>
-        );
-      })}
+      {pinnedData.length > 0 && (
+        <div>
+          <h4>Pinned Notes</h4>
+          {pinnedData.map((note) => {
+            const {
+              _id,
+              title,
+              content,
+              timeCreated,
+              backgroundColor,
+              tag,
+              isPinned,
+            } = note;
+            return (
+              <div
+                style={{ backgroundColor: backgroundColor }}
+                key={_id}
+                className='card card__note'
+              >
+                <header className='card__heading'>
+                  {title}
+                  <span
+                    onClick={() =>
+                      dispatch({
+                        type: 'PINNED',
+                        payload: _id,
+                      })
+                    }
+                    className='note__pin'
+                  >
+                    <i
+                      className={isPinned ? 'bi bi-pin-fill' : 'bi bi-pin'}
+                    ></i>
+                  </span>
+                </header>
+                <p className='card__desc'>{content}</p>
+                <p className='card__place'>Created At {timeCreated}</p>
+                {tag === '' ? null : <p className='card__label'> {tag}</p>}
+                <footer className='card__icon card__footer'>
+                  <span title='Delete' className='footer_icon'>
+                    <i
+                      onClick={() => deleteHandler(note)}
+                      className='icon bi bi-trash'
+                    ></i>
+                  </span>
+                  <span title='Edit' className='footer_icon'>
+                    <i
+                      onClick={() => editHandler(note)}
+                      className='icon bi bi-pencil-square'
+                    ></i>
+                  </span>
+                  <span title='Archive' className='footer_icon'>
+                    <i
+                      onClick={() => archiveHandler(note)}
+                      className='icon bi bi-arrow-down-square-fill'
+                    ></i>
+                  </span>
+                </footer>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {unPinnedNotes.length > 0 && (
+        <div>
+          <h4>Others</h4>
+          {unPinnedNotes.map((note) => {
+            const {
+              _id,
+              title,
+              content,
+              timeCreated,
+              backgroundColor,
+              tag,
+              isPinned,
+            } = note;
+            return (
+              <div
+                style={{ backgroundColor: backgroundColor }}
+                key={_id}
+                className='card card__note'
+              >
+                <header className='card__heading'>
+                  {title}
+                  <span
+                    onClick={() =>
+                      dispatch({
+                        type: 'PINNED',
+                        payload: _id,
+                      })
+                    }
+                    className='note__pin'
+                  >
+                    <i
+                      className={isPinned ? 'bi bi-pin-fill' : 'bi bi-pin'}
+                    ></i>
+                  </span>
+                </header>
+                <p className='card__desc'>{content}</p>
+                <p className='card__place'>Created At {timeCreated}</p>
+                {tag === '' ? null : <p className='card__label'> {tag}</p>}
+                <footer className='card__icon card__footer'>
+                  <span title='Delete' className='footer_icon'>
+                    <i
+                      onClick={() => deleteHandler(note)}
+                      className='icon bi bi-trash'
+                    ></i>
+                  </span>
+                  <span title='Edit' className='footer_icon'>
+                    <i
+                      onClick={() => editHandler(note)}
+                      className='icon bi bi-pencil-square'
+                    ></i>
+                  </span>
+                  <span title='Archive' className='footer_icon'>
+                    <i
+                      onClick={() => archiveHandler(note)}
+                      className='icon bi bi-arrow-down-square-fill'
+                    ></i>
+                  </span>
+                </footer>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

@@ -58,7 +58,7 @@ export const Navbar = () => {
               className='navbar__social-link'
               onClick={(e) => logOutHandler(e)}
             >
-              <i class='bi bi-box-arrow-in-right'></i>
+              <i className='bi bi-box-arrow-in-right'></i>
             </Link>
           ) : (
             <Link to='/login' className='navbar__social-link'>
@@ -82,7 +82,7 @@ export const Navbar = () => {
             onClick={sidebarClickHandler}
             className='navbar__social-link hamburger'
           >
-            <i class='bi bi-list'></i>
+            <i className='bi bi-list'></i>
           </li>
         </ul>
       </nav>
@@ -106,7 +106,7 @@ export const Navbar = () => {
             placeholder='Filter with labels'
           />
           <span onClick={filterHandler}>
-            <i class='filter__icon bi bi-funnel-fill'></i>
+            <i className='filter__icon bi bi-funnel-fill'></i>
           </span>
         </ul>
       </div>

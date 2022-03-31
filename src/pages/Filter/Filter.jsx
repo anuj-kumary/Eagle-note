@@ -3,16 +3,11 @@ import { useData } from '../../context';
 import './Filter.css';
 
 export const Filter = ({ setShowFilter }) => {
-  const { state } = useData();
+  const { dispatch } = useData();
   const hideModalHandler = () => {
     setShowFilter(false);
   };
-  const changeHandler = (e) => {
-    const text = e.target.value;
-    if (text === 'asc') {
-      state.noteList.sort((a, b) => a.timeCreated - b.timeCreated);
-    } else return state.noteList.sort((a, b) => b.timeCreated - a.timeCreated);
-  };
+
   return (
     <div className='modal'>
       <h3>
@@ -24,25 +19,31 @@ export const Filter = ({ setShowFilter }) => {
       <hr />
       <label className='filter__input'>
         <input
-          onChange={(e) => {
-            changeHandler(e);
-          }}
+          onClick={(e) =>
+            dispatch({
+              type: 'DATEFILTER',
+              payload: e.target.value,
+            })
+          }
           name='filter'
           type='radio'
-          value='asc'
+          value='newDate'
         />
-        <span className='filter__desc'>Date - Asc</span>
+        <span className='filter__desc'>Date-New</span>
       </label>
       <label className='filter__input'>
         <input
-          onChange={(e) => {
-            changeHandler(e);
-          }}
+          onClick={(e) =>
+            dispatch({
+              type: 'DATEFILTER',
+              payload: e.target.value,
+            })
+          }
           name='filter'
           type='radio'
-          value='dsc'
+          value='oldDate'
         />
-        <span className='filter__desc'>Date - Dsc</span>
+        <span className='filter__desc'>Date-Old</span>
       </label>
     </div>
   );
