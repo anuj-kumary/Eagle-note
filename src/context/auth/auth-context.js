@@ -8,7 +8,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const localStorageToken = JSON.parse(localStorage.getItem('login'));
   const [token, setToken] = useState(localStorageToken?.token);
-  const localStorageUser = JSON.parse(localStorage.getItem('user'));
+  const localStorageUser = JSON.parse(localStorage.getItem('login'));
   const [user, setUser] = useState(localStorageUser?.user);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
         );
         setUser(response.data.createdUser);
         setToken(response.data.encodedToken);
-        navigate('/');
+        navigate('/note');
       }
     } catch (error) {
       console.log(error);
