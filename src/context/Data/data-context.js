@@ -15,7 +15,6 @@ const DataProvider = ({ children }) => {
       type: 'ADD_NOTE',
       payload: { noteList: noteResp.data.notes },
     });
-    console.log(noteResp.data.notes);
   }
 
   return (
