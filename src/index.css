@@ -2,6 +2,14 @@
     --bg-color: #1e2024;
 }
 
+[data-theme='light'] {
+    --bg-color: #fff;
+    --off-white: #111;
+    --warning-color: #7c3aed;
+    --black: #fff
+}
+
+
 body {
     overflow-x: hidden;
 }
@@ -10,4 +18,8 @@ body {
     background-color: var(--bg-color);
     color: var(--off-white);
     min-height: 100vh;
+}
+
+.active {
+    color: var(--warning-color);
 }
