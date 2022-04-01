@@ -15,7 +15,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 88vh;
-    background-color: #141414;
+    background-color: var(--bg-color);
 }
 
 .auth__form {
@@ -71,6 +71,10 @@ input[type=password] {
 
 .input__checkbox {
     vertical-align: middle;
+}
+
+.btn {
+    color: var(--black);
 }
 
 .text {

@@ -18,7 +18,7 @@ export const Main = () => {
     _id: '',
     title: '',
     content: '',
-    backgroundColor: '#111111',
+    backgroundColor: '',
     timeCreated: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
     compareTime: date.getTime(),
     tag: '',
@@ -70,7 +70,7 @@ export const Main = () => {
       content: '',
       timeCreated: `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`,
       compareTime: date.getTime(),
-      backgroundColor: '#111111',
+      backgroundColor: '',
       tag: '',
     });
   };

@@ -1,5 +1,6 @@
 .card__note {
     padding-bottom: .5rem;
+    background-color: var(--bg-color);
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
     border: 1px solid rgba(95, 99, 104, .8);
 }

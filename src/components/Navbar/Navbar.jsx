@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Filter } from '../../pages/Filter/Filter';
 import './Navbar.css';
-import { useAuth, useData } from '../../context';
+import { useAuth, useData, useTheme } from '../../context';
 
 export const Navbar = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [search, setSearch] = useState('');
   const { dispatch, sidebarClickHandler } = useData();
   const { setToken, setUser, token } = useAuth();
+  const { changeTheme, theme } = useTheme();
 
   const filterHandler = () => {
     setShowFilter(true);
@@ -83,6 +84,15 @@ export const Navbar = () => {
             className='navbar__social-link hamburger'
           >
             <i className='bi bi-list'></i>
+          </li>
+          <li onClick={changeTheme} className='navbar__social-link'>
+            <i
+              class={
+                theme === 'dark'
+                  ? 'bi bi-brightness-high-fill'
+                  : 'bi bi-moon-fill'
+              }
+            ></i>
           </li>
         </ul>
       </nav>
