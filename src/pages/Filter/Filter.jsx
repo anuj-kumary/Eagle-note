@@ -29,7 +29,7 @@ export const Filter = ({ setShowFilter }) => {
           type='radio'
           value='newDate'
         />
-        <span className='filter__desc'>Date-New</span>
+        <span className='filter__desc'>Latest Note</span>
       </label>
       <label className='filter__input'>
         <input
@@ -43,7 +43,7 @@ export const Filter = ({ setShowFilter }) => {
           type='radio'
           value='oldDate'
         />
-        <span className='filter__desc'>Date-Old</span>
+        <span className='filter__desc'>Oldest Note</span>
       </label>
     </div>
   );

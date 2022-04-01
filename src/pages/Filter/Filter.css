@@ -15,4 +15,9 @@
 .hide__icon {
     float: right;
     padding: .2rem 1rem;
+    cursor: pointer;
+}
+
+input[type=radio] {
+    display: inline
 }
