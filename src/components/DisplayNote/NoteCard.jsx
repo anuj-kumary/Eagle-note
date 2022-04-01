@@ -50,7 +50,7 @@ export const NoteCard = ({ setNote }) => {
   };
 
   let filterData = searchFilter(state.noteList, state.search);
-  filterData = sortByDate(state.noteList, state.date);
+  filterData = sortByDate(filterData, state.date);
 
   const pinnedData = filterData.filter((item) => item.isPinned);
   const unPinnedNotes = filterData.filter((item) => !item.isPinned);
