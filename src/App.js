@@ -7,6 +7,7 @@ import { useAuth, useTheme } from './context';
 import { Note } from './pages/Note/Note';
 import { Home } from './pages/Home/Home';
 import './index.css';
+import { Pagenotfound } from './pages/PageNotFound/PageNotFound';
 
 function App() {
   const { token } = useAuth();
@@ -23,6 +24,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/archive' element={token ? <Archive /> : <Login />} />
           <Route path='/label' element={token ? <Label /> : <Login />} />
+          <Route path='*' element={<Pagenotfound />} />
         </Routes>
       </div>
     </>
