@@ -34,33 +34,30 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        {(pathname === '/note' ||
-          pathname === '/archive' ||
-          pathname === '/label') &&
-          token && (
-            <ul className='navbar__search'>
-              <input
-                className='search__box'
-                type='text'
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    dispatch({
-                      type: 'SEARCH',
-                      payload: search,
-                    });
-                  }
-                }}
-                placeholder='Filter with labels'
-              />
-              <span onClick={filterHandler}>
-                <i className='filter__icon bi bi-funnel-fill'></i>
-              </span>
-            </ul>
-          )}
+        {(pathname === '/note' || pathname === '/archive') && token && (
+          <ul className='navbar__search'>
+            <input
+              className='search__box'
+              type='text'
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  dispatch({
+                    type: 'SEARCH',
+                    payload: search,
+                  });
+                }
+              }}
+              placeholder='Filter with labels'
+            />
+            <span onClick={filterHandler}>
+              <i className='filter__icon bi bi-funnel-fill'></i>
+            </span>
+          </ul>
+        )}
 
         <ul className='navbar__social'>
           {token ? (
@@ -89,9 +86,7 @@ export const Navbar = () => {
           >
             <i className='fab fa-github'></i>
           </a>
-          {(pathname === '/note' ||
-            pathname === '/archive' ||
-            pathname === '/label') && (
+          {(pathname === '/note' || pathname === '/archive') && (
             <li
               onClick={sidebarClickHandler}
               className='navbar__social-link hamburger'
@@ -110,35 +105,32 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      {(pathname === '/note' ||
-        pathname === '/archive' ||
-        pathname === '/label') &&
-        token && (
-          <div className='mobile__search--container'>
-            <ul className='mobile__navbar--search'>
-              <input
-                className='search__box'
-                type='text'
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    dispatch({
-                      type: 'SEARCH',
-                      payload: search,
-                    });
-                  }
-                }}
-                placeholder='Filter with labels'
-              />
-              <span onClick={filterHandler}>
-                <i className='filter__icon bi bi-funnel-fill'></i>
-              </span>
-            </ul>
-          </div>
-        )}
+      {(pathname === '/note' || pathname === '/archive') && token && (
+        <div className='mobile__search--container'>
+          <ul className='mobile__navbar--search'>
+            <input
+              className='search__box'
+              type='text'
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  dispatch({
+                    type: 'SEARCH',
+                    payload: search,
+                  });
+                }
+              }}
+              placeholder='Filter with labels'
+            />
+            <span onClick={filterHandler}>
+              <i className='filter__icon bi bi-funnel-fill'></i>
+            </span>
+          </ul>
+        </div>
+      )}
 
       {showFilter ? <Filter setShowFilter={setShowFilter} /> : null}
     </>
