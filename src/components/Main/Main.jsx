@@ -9,6 +9,7 @@ import './Main.css';
 
 export const Main = () => {
   const [expand, setExpand] = useState(false);
+  const [error, setError] = useState(false);
   const { token } = useAuth();
   const { dispatch } = useData();
   const date = new Date();
@@ -33,35 +34,45 @@ export const Main = () => {
     setExpand(false);
   };
 
+  const showErrorMsg = () => {
+    setError(true);
+  };
+  console.log(error);
+
   const clickHandler = async () => {
     if (!token) {
       navigate('/login');
     }
-    if (!note._id) {
-      let newNote = { ...note, tags: [note.tag] };
+    if (note.title !== '') {
+      setError(false);
+      if (!note._id) {
+        let newNote = { ...note, tags: [note.tag] };
 
-      const response = await postNotes({
-        note: newNote,
-        encodedToken: token,
-      });
-
-      if (response.status === 201) {
-        dispatch({
-          type: 'ADD_NOTE',
-          payload: {
-            noteList: response.data.notes,
-          },
+        const response = await postNotes({
+          note: newNote,
+          encodedToken: token,
         });
+
+        if (response.status === 201) {
+          dispatch({
+            type: 'ADD_NOTE',
+            payload: {
+              noteList: response.data.notes,
+            },
+          });
+        }
+      } else {
+        let newNote = { ...note, tags: [note.tag] };
+        const editResponse = await editNote(note._id, token, newNote);
+        if (editResponse.status === 201) {
+          dispatch({
+            type: 'ADD_NOTE',
+            payload: { noteList: editResponse.data.notes },
+          });
+        }
       }
     } else {
-      let newNote = { ...note, tags: [note.tag] };
-      const editResponse = await editNote(note._id, token, newNote);
-      if (editResponse.status === 201) {
-        dispatch({
-          type: 'ADD_NOTE',
-          payload: { noteList: editResponse.data.notes },
-        });
-      }
+      showErrorMsg();
     }
 
     setNote({
@@ -78,7 +89,7 @@ export const Main = () => {
   return (
     <>
       <main className='main__container'>
-        <div className='note'>
+        <div className={error ? 'error__note' : 'note'}>
           {expand ? (
             <div className='notes'>
               <input
@@ -93,10 +104,10 @@ export const Main = () => {
                     title: e.target.value,
                   })
                 }
+                required
               ></input>
             </div>
           ) : null}
-
           <textarea
             className='note__content'
             name='content'
@@ -111,6 +122,7 @@ export const Main = () => {
             }
             onClick={showNote}
             onDoubleClick={hideNote}
+            required
           ></textarea>
           {expand ? (
             <footer className='footer'>
@@ -135,7 +147,7 @@ export const Main = () => {
                     onChange={(e) =>
                       setNote({
                         ...note,
-                        tag: e.target.value,
+                        tag: e.target.value.toUpperCase(),
                       })
                     }
                   />
@@ -147,6 +159,7 @@ export const Main = () => {
             </footer>
           ) : null}
         </div>
+        {error && <p className='input--err'>Please enter the title</p>}
 
         <DisplayNote setNote={setNote} />
       </main>

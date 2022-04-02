@@ -11,6 +11,14 @@
     padding: 0.1em;
 }
 
+.error__note {
+    border: 1px solid #dc143c;
+}
+
+.input--err {
+    margin: .2rem;
+}
+
 .notes {
     display: flex;
 }
