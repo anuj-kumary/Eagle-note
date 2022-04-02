@@ -37,7 +37,6 @@ export const Main = () => {
   const showErrorMsg = () => {
     setError(true);
   };
-  console.log(error);
 
   const clickHandler = async () => {
     if (!token) {
