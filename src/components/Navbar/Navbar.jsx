@@ -89,12 +89,16 @@ export const Navbar = () => {
           >
             <i className='fab fa-github'></i>
           </a>
-          <li
-            onClick={sidebarClickHandler}
-            className='navbar__social-link hamburger'
-          >
-            <i className='bi bi-list'></i>
-          </li>
+          {(pathname === '/note' ||
+            pathname === '/archive' ||
+            pathname === '/label') && (
+            <li
+              onClick={sidebarClickHandler}
+              className='navbar__social-link hamburger'
+            >
+              <i className='bi bi-list'></i>
+            </li>
+          )}
           <li onClick={changeTheme} className='navbar__social-link'>
             <i
               class={
@@ -106,30 +110,35 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div className='mobile__search--container'>
-        <ul className='mobile__navbar--search'>
-          <input
-            className='search__box'
-            type='text'
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                dispatch({
-                  type: 'SEARCH',
-                  payload: search,
-                });
-              }
-            }}
-            placeholder='Filter with labels'
-          />
-          <span onClick={filterHandler}>
-            <i className='filter__icon bi bi-funnel-fill'></i>
-          </span>
-        </ul>
-      </div>
+      {(pathname === '/note' ||
+        pathname === '/archive' ||
+        pathname === '/label') &&
+        token && (
+          <div className='mobile__search--container'>
+            <ul className='mobile__navbar--search'>
+              <input
+                className='search__box'
+                type='text'
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    dispatch({
+                      type: 'SEARCH',
+                      payload: search,
+                    });
+                  }
+                }}
+                placeholder='Filter with labels'
+              />
+              <span onClick={filterHandler}>
+                <i className='filter__icon bi bi-funnel-fill'></i>
+              </span>
+            </ul>
+          </div>
+        )}
 
       {showFilter ? <Filter setShowFilter={setShowFilter} /> : null}
     </>
