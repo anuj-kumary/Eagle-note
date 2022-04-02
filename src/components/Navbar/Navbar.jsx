@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Filter } from '../../pages/Filter/Filter';
 import './Navbar.css';
@@ -10,6 +10,8 @@ export const Navbar = () => {
   const { dispatch, sidebarClickHandler } = useData();
   const { setToken, setUser, token } = useAuth();
   const { changeTheme, theme } = useTheme();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const filterHandler = () => {
     setShowFilter(true);
@@ -20,6 +22,7 @@ export const Navbar = () => {
     localStorage.removeItem('login');
     setToken(null);
     setUser(null);
+    navigate('/');
   };
 
   return (
@@ -30,28 +33,35 @@ export const Navbar = () => {
             EagleNote
           </Link>
         </div>
-        <ul className='navbar__search'>
-          <input
-            className='search__box'
-            type='text'
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                dispatch({
-                  type: 'SEARCH',
-                  payload: search,
-                });
-              }
-            }}
-            placeholder='Filter with labels'
-          />
-          <span onClick={filterHandler}>
-            <i className='filter__icon bi bi-funnel-fill'></i>
-          </span>
-        </ul>
+
+        {(pathname === '/note' ||
+          pathname === '/archive' ||
+          pathname === '/label') &&
+          token && (
+            <ul className='navbar__search'>
+              <input
+                className='search__box'
+                type='text'
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    dispatch({
+                      type: 'SEARCH',
+                      payload: search,
+                    });
+                  }
+                }}
+                placeholder='Filter with labels'
+              />
+              <span onClick={filterHandler}>
+                <i className='filter__icon bi bi-funnel-fill'></i>
+              </span>
+            </ul>
+          )}
+
         <ul className='navbar__social'>
           {token ? (
             <Link
