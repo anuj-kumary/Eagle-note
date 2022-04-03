@@ -33,6 +33,11 @@ export const Sidebar = () => {
               Archive
             </Link>
           </li>
+          <li onClick={() => setShowSidebar(false)} className='sidebar__link'>
+            <Link to='/trash' className='menu__link'>
+              Trash
+            </Link>
+          </li>
         </ul>
       </aside>
     </>

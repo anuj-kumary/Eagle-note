@@ -1,6 +1,7 @@
 export const initialState = {
   noteList: [],
   archiveList: [],
+  trashList: [],
   search: '',
   date: '',
 };
@@ -24,6 +25,19 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         archiveList: [...action.payload.archiveList],
+      };
+
+    case 'TRASH_NOTE':
+      return {
+        ...state,
+        trashList: [...action.payload.trashList],
+        noteList: [...action.payload.noteList],
+      };
+
+    case 'DELETE_TRASH':
+      return {
+        ...state,
+        trashList: [...action.payload.trashList],
       };
 
     case 'SEARCH':
