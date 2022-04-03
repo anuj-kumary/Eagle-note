@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth, useData } from '../../context';
-import { deleteNote, postArchiveNote } from '../../services/Services';
+import { postArchiveNote, trashNote } from '../../services/Services';
 import { searchFilter, sortByDate } from '../../utils/utils';
 import './NoteCard.css';
 
@@ -26,12 +26,16 @@ export const NoteCard = ({ setNote }) => {
     });
   };
 
-  const deleteHandler = async (note) => {
-    const response = await deleteNote(note._id, token);
-    if (response.status === 200 || response.status === 201) {
+  const trashHandler = async (note) => {
+    const response = await trashNote(note._id, token, note);
+    console.log(response);
+    if (response.status === 201) {
       dispatch({
-        type: 'ADD_NOTE',
-        payload: { noteList: response.data.notes },
+        type: 'TRASH_NOTE',
+        payload: {
+          trashList: response.data.trash,
+          noteList: response.data.notes,
+        },
       });
     }
   };
@@ -98,7 +102,7 @@ export const NoteCard = ({ setNote }) => {
                 <footer className='card__icon card__footer'>
                   <span title='Delete' className='footer_icon'>
                     <i
-                      onClick={() => deleteHandler(note)}
+                      onClick={() => trashHandler(note)}
                       className='icon bi bi-trash'
                     ></i>
                   </span>
@@ -162,7 +166,7 @@ export const NoteCard = ({ setNote }) => {
                 <footer className='card__icon card__footer'>
                   <span title='Delete' className='footer_icon'>
                     <i
-                      onClick={() => deleteHandler(note)}
+                      onClick={() => trashHandler(note)}
                       className='icon bi bi-trash'
                     ></i>
                   </span>
