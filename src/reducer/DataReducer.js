@@ -46,7 +46,7 @@ export const DataReducer = (state, action) => {
         search: action.payload.toLowerCase(),
       };
 
-    case 'DATEFILTER':
+    case 'TIMEFILTER':
       return {
         ...state,
         date: action.payload,
