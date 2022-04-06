@@ -11,7 +11,7 @@ export const Filter = ({ setShowFilter }) => {
   return (
     <div className='modal'>
       <h3>
-        Sort By Date
+        Sort By Time
         <span onClick={hideModalHandler} className='hide__icon'>
           X
         </span>
@@ -21,13 +21,13 @@ export const Filter = ({ setShowFilter }) => {
         <input
           onClick={(e) =>
             dispatch({
-              type: 'DATEFILTER',
+              type: 'TIMEFILTER',
               payload: e.target.value,
             })
           }
           name='filter'
           type='radio'
-          value='newDate'
+          value='newTime'
         />
         <span className='filter__desc'>Latest Note</span>
       </label>
@@ -35,13 +35,13 @@ export const Filter = ({ setShowFilter }) => {
         <input
           onClick={(e) =>
             dispatch({
-              type: 'DATEFILTER',
+              type: 'TIMEFILTER',
               payload: e.target.value,
             })
           }
           name='filter'
           type='radio'
-          value='oldDate'
+          value='oldTime'
         />
         <span className='filter__desc'>Oldest Note</span>
       </label>
