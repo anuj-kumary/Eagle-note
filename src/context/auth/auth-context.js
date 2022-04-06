@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
         navigate('/note');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
