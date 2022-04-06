@@ -21,6 +21,7 @@
 
 .notes {
     display: flex;
+    flex-direction: column
 }
 
 .note__pinned {

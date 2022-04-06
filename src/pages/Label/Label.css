@@ -6,6 +6,7 @@
 .label {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .notify__msg {
