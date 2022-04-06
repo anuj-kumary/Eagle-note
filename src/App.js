@@ -6,6 +6,7 @@ import { Archive } from './pages/Archive/Archive';
 import { useAuth, useTheme } from './context';
 import { Note } from './pages/Note/Note';
 import { Home } from './pages/Home/Home';
+import { Trash } from './pages/Trash/Trash';
 import './index.css';
 import { Pagenotfound } from './pages/PageNotFound/PageNotFound';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/archive' element={token ? <Archive /> : <Login />} />
           <Route path='/label' element={token ? <Label /> : <Login />} />
+          <Route path='/trash' element={token ? <Trash /> : <Login />} />
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
       </div>
