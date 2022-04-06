@@ -4,3 +4,8 @@
     flex-wrap: wrap;
     gap: 1rem;
 }
+
+.notify__msg {
+    padding: 2rem 8rem;
+    font-size: 2rem;
+}

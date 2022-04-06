@@ -2,5 +2,5 @@
     width: 100%;
     margin: 3.125rem auto 0;
     display: flex;
-    padding: 0 1rem;
+    min-height: 80vh;
 }

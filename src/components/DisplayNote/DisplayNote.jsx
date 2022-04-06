@@ -5,7 +5,7 @@ import './DisplayNote.css';
 export const DisplayNote = ({ setNote }) => {
   return (
     <>
-      <div className='card__container'>
+      <div className='note__container'>
         <NoteCard setNote={setNote} />
       </div>
     </>

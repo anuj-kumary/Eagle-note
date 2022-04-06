@@ -48,6 +48,7 @@
 
 .footer {
     display: flex;
+    width: 100%;
 }
 
 .note__delete {
@@ -59,7 +60,7 @@
 }
 
 .note__add {
-    padding: 0.5rem;
+    padding: 0.7rem;
     cursor: pointer;
 }
 

@@ -4,7 +4,7 @@
 }
 
 .hero__tagline {
-    margin-top: -4rem;
+    margin-top: -6rem;
     font-size: 3.5rem;
 }
 
@@ -15,7 +15,11 @@
 .hero__para {
     padding: 1rem 0;
     font-size: 1.2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
+}
+
+.img-res {
+    height: 80%;
 }
 
 .hero__left>button {
@@ -34,7 +38,11 @@
 .btn {
     background-color: var(--off-white);
     margin: 1.3rem 0 0 0;
-    padding: .8rem;
+    padding: .7rem 1.5rem;
+}
+
+.btn:hover {
+    opacity: .9;
 }
 
 .link {

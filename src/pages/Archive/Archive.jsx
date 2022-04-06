@@ -38,6 +38,9 @@ export const Archive = () => {
       <div className='note__container'>
         <Sidebar />
         <div className='archive__container'>
+          {state.archiveList.length < 1 && (
+            <h4 className='notify__msg'>No notes in Archive yet</h4>
+          )}
           {state.archiveList.map((note) => {
             const { _id, title, content, timeCreated, backgroundColor } = note;
             return (
