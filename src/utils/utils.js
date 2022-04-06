@@ -6,7 +6,7 @@ export const searchFilter = (data, keyword) => {
 };
 
 export const sortByDate = (data, keyword) => {
-  if (keyword === 'newDate') {
+  if (keyword === 'newTime') {
     return data.sort((a, b) => a.compareTime - b.compareTime);
   }
   return data.sort((a, b) => b.compareTime - a.compareTime);
