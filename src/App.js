@@ -20,7 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/note' element={<Note />} />
+          <Route path='/note' element={token ? <Note /> : <Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/archive' element={token ? <Archive /> : <Login />} />

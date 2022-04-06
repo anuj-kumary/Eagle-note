@@ -65,11 +65,12 @@ export const Navbar = () => {
               to='/login'
               className='navbar__social-link'
               onClick={(e) => logOutHandler(e)}
+              title='Logout'
             >
               <i className='bi bi-box-arrow-in-right'></i>
             </Link>
           ) : (
-            <Link to='/login' className='navbar__social-link'>
+            <Link to='/login' className='navbar__social-link' title='Login'>
               <i className='fas fa-user'></i>
             </Link>
           )}
@@ -77,16 +78,18 @@ export const Navbar = () => {
           <a
             href='https://twitter.com/TheRealAnujK'
             className='navbar__social-link'
+            title='Twitter'
           >
             <i className='fab fa-twitter'></i>
           </a>
           <a
             href='https://github.com/anuj-kumary/eagle-note'
             className='navbar__social-link'
+            title='Github'
           >
             <i className='fab fa-github'></i>
           </a>
-          {(pathname === '/note' || pathname === '/archive') && (
+          {pathname === '/note' && token && (
             <li
               onClick={sidebarClickHandler}
               className='navbar__social-link hamburger'
@@ -94,7 +97,11 @@ export const Navbar = () => {
               <i className='bi bi-list'></i>
             </li>
           )}
-          <li onClick={changeTheme} className='navbar__social-link'>
+          <li
+            onClick={changeTheme}
+            className='navbar__social-link'
+            title={theme === 'dark' ? 'Enable Light Mode' : 'Enable Dark Mode'}
+          >
             <i
               class={
                 theme === 'dark'
@@ -105,7 +112,7 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      {(pathname === '/note' || pathname === '/archive') && token && (
+      {pathname === '/note' && token && (
         <div className='mobile__search--container'>
           <ul className='mobile__navbar--search'>
             <input

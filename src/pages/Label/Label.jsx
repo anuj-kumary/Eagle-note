@@ -44,6 +44,9 @@ export const Label = () => {
       <div className='note__container'>
         <Sidebar />
         <div className='label__container'>
+          {tags.length < 1 && (
+            <h4 className='notify__msg'>No notes with this label yet</h4>
+          )}
           {tags.length > 0 &&
             tags.map((element) => {
               const tagNote = state.noteList.filter(

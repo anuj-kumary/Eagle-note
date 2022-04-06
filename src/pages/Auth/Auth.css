@@ -64,9 +64,21 @@ input[type=password] {
     font-size: .8rem;
 }
 
+.login__nav {
+    padding-top: 1.3rem;
+    font-size: .8rem;
+}
+
 .auth__forget {
     float: right;
     color: var(--primary-color);
+}
+
+.login___btn--now {
+    border-bottom: 1px solid var(--warning-color);
+    color: var(--off-white);
+    margin-left: .3rem;
+    padding-bottom: .2rem;
 }
 
 .input__checkbox {
@@ -79,6 +91,10 @@ input[type=password] {
 
 .text {
     vertical-align: text-bottom;
+}
+
+.login___btn--now:hover {
+    color: var(--warning-color);
 }
 
 .btn__signup>button {

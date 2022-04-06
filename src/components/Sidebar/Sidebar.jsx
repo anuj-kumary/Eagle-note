@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useData } from '../../context';
 import './Sidebar.css';
 
@@ -11,32 +10,44 @@ export const Sidebar = () => {
       <aside className={showSidebar ? 'showSide' : 'sidebar'}>
         <ul>
           <li className='sidebar__link'>
-            <Link
+            <NavLink
               onClick={() => setShowSidebar(false)}
               to='/note'
+              activeClassName='active'
               className='menu__link'
             >
               Note
-            </Link>
+            </NavLink>
           </li>
           <li className='sidebar__link'>
-            <Link
+            <NavLink
+              activeClassName='active'
               onClick={() => setShowSidebar(false)}
               to='/label'
               className='menu__link'
             >
               Label
-            </Link>
+            </NavLink>
           </li>
-          <li onClick={() => setShowSidebar(false)} className='sidebar__link'>
-            <Link to='/archive' className='menu__link'>
+          <li className='sidebar__link'>
+            <NavLink
+              activeClassName='active'
+              onClick={() => setShowSidebar(false)}
+              to='/archive'
+              className='menu__link'
+            >
               Archive
-            </Link>
+            </NavLink>
           </li>
-          <li onClick={() => setShowSidebar(false)} className='sidebar__link'>
-            <Link to='/trash' className='menu__link'>
+          <li className='sidebar__link'>
+            <NavLink
+              activeClassName='active'
+              onClick={() => setShowSidebar(false)}
+              to='/trash'
+              className='menu__link'
+            >
               Trash
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </aside>

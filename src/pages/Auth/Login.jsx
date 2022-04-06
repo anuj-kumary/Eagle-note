@@ -41,7 +41,7 @@ export const Login = () => {
         navigate('/note');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -57,6 +57,7 @@ export const Login = () => {
             <input
               className='input-txt'
               type='email'
+              placeholder='abc@gmail.com'
               value={loginForm.email}
               onChange={(e) =>
                 setLoginForm({
@@ -72,6 +73,7 @@ export const Login = () => {
               className='input-txt'
               type='password'
               value={loginForm.password}
+              placeholder='*********'
               onChange={(e) =>
                 setLoginForm({
                   ...loginForm,
@@ -80,15 +82,6 @@ export const Login = () => {
               }
             />
           </div>
-          <div className='input'>
-            <label className='label__text input__checkbox'></label>
-            <input type='checkbox' />
-            <span className='text'>Remember Me</span>
-            <Link to='/login' className='auth__forget'>
-              Forget your Password?
-            </Link>
-          </div>
-
           <div className='btn__signup text__center'>
             <button
               onClick={(e) => loginHandler(e, setLoginForm, loginForm)}
@@ -104,9 +97,12 @@ export const Login = () => {
             </button>
           </div>
           <div className='text__center'>
-            <Link to='/signup' className='login__link fw__400'>
-              Create new account
-            </Link>
+            <p className='login__nav'>
+              Don't have an Account?
+              <Link to='/signup' className='login___btn--now'>
+                Sign Up
+              </Link>
+            </p>
           </div>
         </div>
       </div>

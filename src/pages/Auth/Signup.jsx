@@ -27,13 +27,14 @@ export const Signup = () => {
         <form>
           <div className='auth__form'>
             <div className='auth__title'>
-              <h2 className='heading text__center'>Signup</h2>
+              <h2 className='heading text__center'>Sign Up</h2>
             </div>
             <div className='input'>
               <label className='label__text'>Name</label>
               <input
                 className='input-txt'
                 type='text'
+                placeholder='Aadarsh Balak'
                 value={signupForm.name}
                 onChange={(e) =>
                   setSignupForm({ ...signupForm, name: e.target.value })
@@ -46,6 +47,7 @@ export const Signup = () => {
               <input
                 className='input-txt'
                 type='email'
+                placeholder='abc@gmail.com'
                 value={signupForm.email}
                 onChange={(e) =>
                   setSignupForm({
@@ -61,6 +63,7 @@ export const Signup = () => {
               <input
                 className='input-txt'
                 type='password'
+                placeholder='********'
                 value={signupForm.password}
                 onChange={(e) =>
                   setSignupForm({
@@ -71,20 +74,17 @@ export const Signup = () => {
                 required
               />
             </div>
-            <div className='input'>
-              <label className='label__text input__checkbox'></label>
-              <input type='checkbox' />
-              <span className='text'>Remember Me</span>
-              <Link to='/login' className='auth__forget'>
-                Forget your Password?
-              </Link>
-            </div>
-
             <div className='btn__signup text__center'>
               <button onClick={(e) => signupHandler(e)} className='btn '>
-                Signup
+                Sign Up
               </button>
             </div>
+            <p className='login__nav'>
+              Alredy a Member?
+              <Link to='/login' className='login___btn--now'>
+                Sign In
+              </Link>
+            </p>
           </div>
         </form>
       </div>

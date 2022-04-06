@@ -16,7 +16,7 @@ export const Pagenotfound = () => {
           <h5 className='sub__heading text__center'>It's just a 404 Error!</h5>
           <p className='title text__center'>
             We're sorry, the page you requested counld not be found. Please go
-            back to the homepage.{' '}
+            back to the homepage.
           </p>
         </div>
       </div>

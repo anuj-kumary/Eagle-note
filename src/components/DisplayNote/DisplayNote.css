@@ -1,15 +1,15 @@
-.card__container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    margin-top: 1rem;
+.cards {
+    display: flex;
+    flex-direction: row;
 }
 
+.note {
+    display: flex;
+    flex-wrap: wrap;
+}
 
-@media screen and (max-width:900px) {
-
-    .card__container {
-        grid-template-columns: 1fr;
-        place-items: center;
-    }
+.pinned__note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem
 }
