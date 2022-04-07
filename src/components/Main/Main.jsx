@@ -88,7 +88,7 @@ export const Main = () => {
   return (
     <>
       <main className='main__container'>
-        <div className={error ? 'error__note' : 'note'}>
+        <div className={error ? 'error__note note' : 'note'}>
           {expand ? (
             <div className='notes'>
               <input

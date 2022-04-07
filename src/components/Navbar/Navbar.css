@@ -58,6 +58,10 @@ body {
     display: none;
 }
 
+.navbar__social-link:hover {
+    color: unset;
+}
+
 .hamburger {
     display: none;
 }

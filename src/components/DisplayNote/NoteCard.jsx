@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useAuth, useData } from '../../context';
 import { postArchiveNote, trashNote } from '../../services/Services';
 import { searchFilter, sortByDate } from '../../utils/utils';
@@ -8,6 +8,12 @@ export const NoteCard = ({ setNote }) => {
   const { state, dispatch } = useData();
   const { token } = useAuth();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   const editHandler = ({
     _id,
     title,
@@ -16,6 +22,9 @@ export const NoteCard = ({ setNote }) => {
     backgroundColor,
     tag,
   }) => {
+    window.scrollTo({
+      top: 0,
+    });
     setNote({
       _id,
       title,

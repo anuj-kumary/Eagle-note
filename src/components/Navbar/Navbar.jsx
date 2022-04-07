@@ -79,6 +79,8 @@ export const Navbar = () => {
             href='https://twitter.com/TheRealAnujK'
             className='navbar__social-link'
             title='Twitter'
+            target='_blank'
+            rel='noreferrer noopener'
           >
             <i className='fab fa-twitter'></i>
           </a>
@@ -86,6 +88,8 @@ export const Navbar = () => {
             href='https://github.com/anuj-kumary/eagle-note'
             className='navbar__social-link'
             title='Github'
+            target='_blank'
+            rel='noreferrer noopener'
           >
             <i className='fab fa-github'></i>
           </a>

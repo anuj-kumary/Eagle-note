@@ -16,7 +16,8 @@
 }
 
 .input--err {
-    margin: .2rem;
+    width: 37.4rem;
+    margin: .5rem auto;
 }
 
 .notes {
