@@ -36,6 +36,9 @@ export const Trash = () => {
       <div className='note__container'>
         <Sidebar />
         <div className='archive__container'>
+          {state.trashList.length < 1 && (
+            <h4 className='notify__msg'>No notes in Trash</h4>
+          )}
           {state.trashList.map((note) => {
             const { _id, title, content, timeCreated, backgroundColor } = note;
             return (
